@@ -16,7 +16,7 @@
         let mutable Points:Set<Point2D> = Set.empty
         let mutable HitPoints:Set<Point2D> = Set.empty
 
-        member this.AddShip (ship:Ship):bool = 
+        member this.AddShip (ship:Ship) = 
             if Points.Intersect ship.Points |> Enumerable.Any then
                 // already occupied: 
                 false
@@ -27,7 +27,6 @@
                 for pt in ship.Points do
                     Points <- Points.Add pt
                 true
-
 
         member this.IsGameLost = Points.IsEmpty
 
