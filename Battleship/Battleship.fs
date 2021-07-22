@@ -7,7 +7,7 @@
    type Orientation = Horizontal | Vertical
 
    type Ship = {Orientation:Orientation; TopLeft:Point2D; Size:int } with
-       member this.Points:Set<Point2D> =
+       member this.Points =
             match this.Orientation with
                 | Horizontal -> List.map (fun i -> { X = this.TopLeft.X + i; Y = this.TopLeft.Y }) [0 .. this.Size-1] |> Set.ofList
                 | _ -> List.map (fun i -> { X = this.TopLeft.X; Y = this.TopLeft.Y + i }) [0 .. this.Size-1] |> Set.ofList
