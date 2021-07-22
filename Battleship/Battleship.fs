@@ -10,7 +10,7 @@
        member this.Points =
             match this.Orientation with
                 | Horizontal -> List.map (fun i -> { X = this.TopLeft.X + i; Y = this.TopLeft.Y }) [0 .. this.Size-1] |> Set.ofList
-                | _ -> List.map (fun i -> { X = this.TopLeft.X; Y = this.TopLeft.Y + i }) [0 .. this.Size-1] |> Set.ofList
+                | Vertical -> List.map (fun i -> { X = this.TopLeft.X; Y = this.TopLeft.Y + i }) [0 .. this.Size-1] |> Set.ofList
 
    type Board2D(Width: int, Height: int) =
         let mutable Points:Set<Point2D> = Set.empty
