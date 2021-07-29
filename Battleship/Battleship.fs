@@ -3,8 +3,7 @@
    open System.Linq
 
    type Person = Woman | Man
-   and Height = int
-
+   
    type Point2D = { X: int; Y: int }
 
    type Orientation = Horizontal | Vertical
