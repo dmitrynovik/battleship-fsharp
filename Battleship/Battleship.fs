@@ -2,6 +2,9 @@
 
    open System.Linq
 
+   type Person = Woman | Man
+   and Height = int
+
    type Point2D = { X: int; Y: int }
 
    type Orientation = Horizontal | Vertical
@@ -17,10 +20,10 @@
         let mutable HitPoints:Set<Point2D> = Set.empty
 
         member this.AddShip (ship:Ship) = 
-            if Points.Intersect ship.Points |> Enumerable.Any then
+            if Points.Intersect(ship.Points).Any() then
                 // already occupied: 
                 false
-            elif Enumerable.Any (ship.Points, (fun pt -> pt.X + ship.TopLeft.X >= Width || pt.Y + ship.TopLeft.Y >= Height)) then
+            elif ship.Points.Any(fun pt -> pt.X + ship.TopLeft.X >= Width || pt.Y + ship.TopLeft.Y >= Height) then
                 // out of bounds:
                 false
             else
